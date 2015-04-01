@@ -33,12 +33,13 @@ public class UsuarioControles extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String usuario = request.getParameter("inputusuario");
-        String pass = request.getParameter("inputclave");
+        String usuario = request.getParameter("usuario");
+        String pass = request.getParameter("pass");
 
         Usuario usuarios = new Usuario();
         usuarios.setUsuario(usuario);
         usuarios.setPass(pass);
 
+        
     }
 }

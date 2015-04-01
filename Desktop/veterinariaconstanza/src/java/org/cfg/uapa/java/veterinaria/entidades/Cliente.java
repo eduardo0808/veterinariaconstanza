@@ -149,15 +149,25 @@ public class Cliente {
     }
 
     public void setPais(Pais paisPorId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     this.pais_id = pais_id;
     }
 
     public Object getPais() {
+      return pais_id;       
+    }
+
+    public void setPais_id(String pais_id) {
+        
+    }
+
+    /**
+     *
+     * @param pais_id
+     */
+    public void setPais(String pais_id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setPais(String apellido) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+ 
  
 }

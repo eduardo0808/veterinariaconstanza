@@ -5,6 +5,7 @@
  */
 package org.cfg.uapa.java.veterinaria.servicios;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,7 +47,7 @@ public class ServicioCliente {
             while (rs.next()) {
                
                 Cliente cliente = new Cliente();
-                cliente.setId(rs.getInt("id"));
+                                                                                                                                                                                                                                                                                                                                                                cliente.setId(rs.getInt("id"));
                 cliente.setNombre(rs.getString("nombre"));
                 cliente.setPais(ServicioPais.getInstancia().getPaisPorId(rs.getInt("pais_id")));
                
@@ -79,7 +80,7 @@ public class ServicioCliente {
 
         boolean estado = false;
         PreparedStatement stmt = null ;
-        String sql = "insert into cliente(nombre,apellido) values(?,?)";
+        String sql = "insert into cliente(nombre,apellido,telefono,calle,apartamento,ciudad,pais_id,usuario,clave) values(?,?,?,?,?,?,"+"3"+",?,?)";
         
          Connection con = Coneccion.getInstancia().getConeccion();
 
@@ -88,6 +89,14 @@ public class ServicioCliente {
              stmt = con.prepareStatement(sql);
              stmt.setString(1, cliente.getNombre());
              stmt.setString(2, cliente.getApellido());
+             stmt.setString(3, cliente.getTelefono());
+             stmt.setString(4, cliente.getCalle());
+             stmt.setString(5, cliente.getApartamento());
+             stmt.setString(6, cliente.getCiudad());
+             stmt.setInt(7, (int) cliente.getPais());
+             stmt.setString(8, cliente.getUsuario());
+             stmt.setString(9, cliente.getClave());
+             
 
             stmt.executeUpdate();
             

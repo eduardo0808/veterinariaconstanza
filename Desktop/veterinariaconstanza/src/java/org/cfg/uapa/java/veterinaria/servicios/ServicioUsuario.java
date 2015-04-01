@@ -34,22 +34,20 @@ public class ServicioUsuario {
 
         List<Usuario> usuarios = new ArrayList<>();
 
-        try (Statement stmt = Coneccion.getInstancia().getConeccion().createStatement()) {
+        try {
+            Statement stmt = Coneccion.getInstancia().getConeccion().createStatement();
+            ResultSet rs = stmt.executeQuery("select * from usuario");
 
-            try (ResultSet rs = stmt.executeQuery("select * from usuario")) {
 
                 while (rs.next()) {
 
-                    Usuario usuario = new Usuario();
-                    usuario.setCodigo(rs.getInt("codigo"));
+                    Usuario usuario = new Usuario();                    
                     usuario.setNombres(rs.getString("nombre"));
                     usuario.setApellidos(rs.getString("apellido"));
                     usuario.setUsuario(rs.getString("usuario"));
                     usuario.setPass(rs.getString("clave"));
                     usuarios.add(usuario);
-                }
-
-            }
+                }            
 
         } catch (SQLException e) {
             Logger.getLogger(getClass().getName()).info("Error en el SQl");
@@ -82,8 +80,7 @@ public class ServicioUsuario {
 
                 if (rs.next()) {
 
-                    usuario1 = new Usuario();
-                    usuario1.setCodigo(rs.getInt("codigo"));
+                    usuario1 = new Usuario();                 
                     usuario1.setNombres(rs.getString("nombre"));
                     usuario1.setApellidos(rs.getString("apellido"));
                     usuario1.setUsuario(rs.getString("usuario"));
