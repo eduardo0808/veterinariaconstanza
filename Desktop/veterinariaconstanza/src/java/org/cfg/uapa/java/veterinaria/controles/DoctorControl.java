@@ -30,7 +30,7 @@ public class DoctorControl extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
           
-        String nombre = request.getParameter("inputNombre");
+        String nombre = request.getParameter("inputnombre");
         String apellido = request.getParameter("inputapellido");
       
         Doctor doctor = new Doctor();

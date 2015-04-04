@@ -31,7 +31,7 @@ public class ServicioPais {
         return INSTANCIA;
     }
 
-    public List<Pais> getListadoPais() {
+    public List<Pais> getListadoPaises {
 
         List<Pais> lista = new ArrayList<Pais>();
 

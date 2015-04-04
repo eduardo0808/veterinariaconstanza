@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.cfg.uapa.java.veterinaria.entidades.Cliente;
+import org.cfg.uapa.java.veterinaria.entidades.Pais;
 import org.cfg.uapa.java.veterinaria.servicios.ServicioCliente;
 
 /**
@@ -32,13 +33,13 @@ public class ClienteControl extends HttpServlet {
        
         String nombre = request.getParameter("Nombre");
         String apellido = request.getParameter("Apellido");
-        String telefono = request.getParameter("telefono");
-        String calle = request.getParameter("calle");
+        String telefono = request.getParameter("Telefono");
+        String calle = request.getParameter("Calle");
         String apartamento = request.getParameter("Apartamento");
         String ciudad = request.getParameter("Ciudad");        
         String pais_id = request.getParameter("Pais");
-        String usuario = request.getParameter("usuario");
-        String clave = request.getParameter("clave");
+        String usuario = request.getParameter("Usuario");
+        String clave = request.getParameter("Clave");
         
         Cliente cliente = new Cliente();        
         cliente.setNombre(nombre);
@@ -47,7 +48,8 @@ public class ClienteControl extends HttpServlet {
         cliente.setCalle(calle);
         cliente.setApartamento(apartamento);
         cliente.setCiudad(ciudad);
-        cliente.setPais(pais_id);
+            Pais Id = null;
+        cliente.setPais(Id);
         cliente.setUsuario(usuario);
         cliente.setClave(clave);        
 

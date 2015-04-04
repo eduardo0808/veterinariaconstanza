@@ -80,7 +80,7 @@ public class ServicioCliente {
 
         boolean estado = false;
         PreparedStatement stmt = null ;
-        String sql = "insert into cliente(nombre,apellido,telefono,calle,apartamento,ciudad,pais_id,usuario,clave) values(?,?,?,?,?,?,"+"3"+",?,?)";
+        String sql = "insert into cliente(nombre,apellido,telefono,calle,apartamento,ciudad,pais_id,usuario,clave) values(?,?,?,?,?,?,3,?,?)";
         
          Connection con = Coneccion.getInstancia().getConeccion();
 
@@ -93,7 +93,7 @@ public class ServicioCliente {
              stmt.setString(4, cliente.getCalle());
              stmt.setString(5, cliente.getApartamento());
              stmt.setString(6, cliente.getCiudad());
-             stmt.setInt(7, (int) cliente.getPais());
+             stmt.setInt(7, (int) cliente.getId());
              stmt.setString(8, cliente.getUsuario());
              stmt.setString(9, cliente.getClave());
              

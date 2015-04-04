@@ -20,9 +20,7 @@ import org.cfg.uapa.java.veterinaria.entidades.Doctor;
  *
  * @author victor
  */
-public class ServicioDoctor {
-
-    
+public class ServicioDoctor {   
     
     private static final ServicioDoctor INSTANCIA = new ServicioDoctor();
     
@@ -32,9 +30,9 @@ public class ServicioDoctor {
     }
      private ServicioDoctor() { }
     
-    public List<Doctor> getListadoDoctores() {
+    public List<Doctor> getlListadoDoctors() {
 
-        List<Doctor> lista = new ArrayList<>();
+        List<Doctor> lista = new ArrayList<Doctor>();
 
         String sql = "select * from doctor";
 
@@ -49,16 +47,16 @@ public class ServicioDoctor {
 
             while (rs.next()) {
                
-                Doctor Doctor = new Doctor();
-                Doctor.setNombre(rs.getString("nombre"));           
-                Doctor.setApellido(rs.getString("apellido"));
+                Doctor doctor = new Doctor();
+                doctor.setNombre(rs.getString("nombre"));           
+                doctor.setApellido(rs.getString("apellido"));
                
 
-                lista.add(Doctor);
+                lista.add(doctor);
             }
 
         } catch (SQLException e) {
-            Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ServicioDoctor.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             try {
                 if (rs != null) {
@@ -71,7 +69,7 @@ public class ServicioDoctor {
                     con.close();
                 }
             } catch (SQLException e) {
-                Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(ServicioDoctor.class.getName()).log(Level.SEVERE, null, e);
             }
         }
 
@@ -87,7 +85,6 @@ public class ServicioDoctor {
          Connection con = Coneccion.getInstancia().getConeccion();
 
         try {
-
              stmt = con.prepareStatement(sql);
              stmt.setString(1, Doctor.getNombre());
              stmt.setString(2, Doctor.getApellido());         
@@ -107,14 +104,9 @@ public class ServicioDoctor {
                     Logger.getLogger(ServicioCita.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 }
-        }
-        
+        }        
         return estado;
-
-    }
-    
-    
-    
+    }      
 }
 
 
